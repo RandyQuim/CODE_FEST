@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TeacherAdminMenuController">
    <children>
-      <Pane fx:id="logoutButton" prefHeight="400.0" prefWidth="600.0">
+      <Pane fx:id="teacherAdminPane" prefHeight="400.0" prefWidth="600.0">
          <children>
             <ListView fx:id="studentList" layoutX="50.0" layoutY="85.0" prefHeight="100.0" prefWidth="400.0" />
             <Label fx:id="studentListLabel" layoutX="50.0" layoutY="62.0" text="Students" />

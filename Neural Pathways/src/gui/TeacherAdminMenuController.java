@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 
 public class TeacherAdminMenuController {
 	@FXML
-	private Pane logoutButton;
+	private Pane teacherAdminPane;
 	@FXML
 	private ListView studentList;
 	@FXML
