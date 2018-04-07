@@ -1,6 +1,7 @@
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -20,45 +21,101 @@ import java.sql.Statement;
  */
 
 public class DatabaseOperations {
-    
+	static Connection connection = null;
+	
 	public void connectToDB() {
 		// Connect to database
-		String hostName = "trivianation.database.windows.net";
-		String dbName = "NeuralPathways";
-		String user = "trivianationadmin@trivianation";
-		String password = "SoftwareEngineering2";
-		String url = (String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password));
-		Connection connection = null;
+		String url = "jdbc:sqlserver://trivianation.database.windows.net:1433;database=NeuralPathways;user=trivianationadmin@trivianation;password={SoftwareEngineering2};encrypt=true;trustServerCertificate=false;hostNameInCertificate=cr2.eastus1-a.control.database.windows.net;loginTimeout=30;";
 
 		try {
             connection = DriverManager.getConnection(url);
-            String schema = connection.getSchema();
-            System.out.println("Successful connection - Schema: " + schema);
-
-            System.out.println("Query data example:");
-            System.out.println("=========================================");
-
-            // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-                + "FROM [SalesLT].[ProductCategory] pc "  
-                + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-
-            try (Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(selectSql)) {
-
-                    // Print results from select statement
-                    System.out.println("Top 20 categories:");
-                    while (resultSet.next())
-                    {
-                        System.out.println(resultSet.getString(1) + " "
-                            + resultSet.getString(2));
-                    }
-             connection.close();
+            System.out.println("Successful connection");
             }                   
-		}
+		
 		catch (Exception e) {
             e.printStackTrace();
 		}
 	}
-}
+	
+	 public void createTable(String tableName, String tableCreationString) {
+		 //String tableName = "TestTable2";
+		 //String tableCreationString = "(column1 varchar(4000) not null PRIMARY KEY, column2 varchar(4000) not null, column3 varchar(4000) not null);";
+		 //DELETEs the table if it exists
+         deleteTable(tableName);
+		 
+		 //Builds the table creation String 
+		 String TSQLSourceCode = "CREATE TABLE " + tableName + tableCreationString;
+		 
+		//CREATEs the table
+	    try {
+	    	//Statement statement = null;
+	    	Statement statement = connection.createStatement();
+	    	statement.executeUpdate(TSQLSourceCode);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+         System.out.println("Creation of " + tableName + " complete!");
+     }
+	 
+     public void deleteTable(String tableName)
+     {
+         String TSQLSourceCode = ("DROP TABLE IF EXISTS " + tableName + ";");
 
+         try {
+        	 Statement statement = connection.createStatement();
+        	 statement.executeUpdate(TSQLSourceCode);
+         } catch (SQLException e) {
+        	 e.printStackTrace();
+         }
+         System.out.println("Deletion of " + tableName + " complete!");
+     }
+     
+     public int RetrieveNumberOfRowsInTable(String tableName)
+     {
+         int numberOfRowsInTable = 0;
+
+         try {
+        	 Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery("SELECT COUNT(*) AS COUNT FROM " + tableName);
+
+             	while(rs.next()) {
+             		System.out.println("The count is " + rs.getInt("COUNT"));
+                }
+         } catch (SQLException e) {
+        	 e.printStackTrace();
+         }
+
+         return numberOfRowsInTable;
+     }
+     
+     public void InsertIntoTable(String tableName, String insertString)
+     {
+         String TSQLSourceCode = insertString;
+         
+    	 String column1 = "column1";
+    	 String column2 = "column2";
+    	 String column3 = "column3";
+    	 
+    	 
+    	 TSQLSourceCode = "INSERT INTO " + tableName + "(column1, column2, column3) VALUES ('" + column1 + "', '" + column2 + "', '" + column3 + "');";
+         try {
+        	 Statement statement = connection.createStatement();
+        	 statement.executeUpdate(TSQLSourceCode);
+         } catch (SQLException e) {
+        	 e.printStackTrace();
+         }
+         System.out.println("Insertion complete!");
+     }
+     
+     public void DeleteRowFromTable(String tableName, String rowToDelete) {
+         String TSQLSourceCode = rowToDelete;
+
+         try {
+        	 Statement statement = connection.createStatement();
+        	 statement.executeUpdate(TSQLSourceCode);
+         } catch (SQLException e) {
+        	 e.printStackTrace();
+         }
+         System.out.println("Deletion complete!");
+     }
+}

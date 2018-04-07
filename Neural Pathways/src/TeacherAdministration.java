@@ -25,8 +25,8 @@ public class TeacherAdministration {
 	}
 	
 	public void addStudent(String name) {
-		Student newStudent = new Student(name);
-		students.add(newStudent);
+		//Student newStudent = new Student(name);
+		//students.add(newStudent);
 	}
 	
 	public void calculateStudentScore(int student) {
