@@ -10,7 +10,16 @@ import javafx.scene.control.PasswordField;
 
 import javafx.event.ActionEvent;
 
+import controller.TestMain;
+
 public class LoginPageController {
+	TestMain main;
+
+	public void setMainApp(TestMain main) {
+        this.main = main;
+        //patientTable.setItems(main.getPatientData());
+        }  
+	
 	@FXML
 	private TextField username;
 	@FXML
@@ -20,7 +29,12 @@ public class LoginPageController {
 	
 	@FXML
 	public void login(ActionEvent event) {
+		System.out.print("Login clicked");
 		
+		if(username.getText().equals("teacher")) {
+			System.out.println("I'm a teacher");
+			main.showTeacherAdminPage();
+		}
 	}
 
 }

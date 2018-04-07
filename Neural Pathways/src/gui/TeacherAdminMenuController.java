@@ -1,5 +1,6 @@
 package gui;
 
+import controller.TestMain;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
@@ -10,7 +11,17 @@ import javafx.scene.control.Label;
 
 import javafx.scene.layout.Pane;
 
+
+
 public class TeacherAdminMenuController {
+	TestMain main;
+
+	public void setMainApp(TestMain main) {
+        this.main = main;
+        //patientTable.setItems(main.getPatientData());
+        } 
+	
+	
 	@FXML
 	private Pane teacherAdminPane;
 	@FXML
