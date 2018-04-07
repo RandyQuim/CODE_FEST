@@ -18,9 +18,6 @@ public class LoginPageController {
 	@FXML
 	private Button loginButton;
 	
-	private static String teacherUsername = "teach";
-	private static String pass = "password";
-	
 	@FXML
 	public void login(ActionEvent event) {
 		
