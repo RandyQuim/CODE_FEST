@@ -39,6 +39,8 @@ public class TriviaPageController {
 	QuestionTable questionTable = new QuestionTable();
 	String[] lines;
 	String[] answers;
+	int questionLine = 4;
+	int answerLine = 5;
 	public void setMainApp(TestMain main) {
 		this.main=main;
 	}
@@ -47,14 +49,14 @@ public class TriviaPageController {
 	
 		if(!a1.isSelected()&&!a2.isSelected()&&!a3.isSelected()&&!a4.isSelected()) {}
 		else {	
-			if(!a1.isSelected() && Integer.parseInt(lines[5])==1) {
+			if(!a1.isSelected() && Integer.parseInt(lines[answerLine])==1) {
 				System.out.println("WRONG");}
-			if(!a2.isSelected() && Integer.parseInt(lines[5])==2) {
+			if(!a2.isSelected() && Integer.parseInt(lines[answerLine])==2) {
 				System.out.println("Wrong");
 			}
-			if(!a3.isSelected() && Integer.parseInt(lines[5])==3) {
+			if(!a3.isSelected() && Integer.parseInt(lines[answerLine])==3) {
 				System.out.println("WRONG");}
-			if(!a4.isSelected() && Integer.parseInt(lines[5])==4) {
+			if(!a4.isSelected() && Integer.parseInt(lines[answerLine])==4) {
 				System.out.println("Wrong");
 			}			
 			next.setDisable(false);
@@ -64,7 +66,22 @@ public class TriviaPageController {
 
 	public void next() {
 		System.out.println("Next Question");
+		nextStep();
+		next.setDisable(true);
+		submit.setDisable(false);
 	}
+	
+	public void nextStep() {
+		questionLine += 2;
+		answerLine += 2;
+		answers = lines[questionLine].split("~");
+	    a1.setText(answers[0]);
+	    a2.setText(answers[1]);
+	    a3.setText(answers[2]);
+	    a4.setText(answers[3]);
+	    step.setText(answers[4]);
+	}
+	
 	@FXML
     private void initialize() {
 		new DatabaseOperations();
