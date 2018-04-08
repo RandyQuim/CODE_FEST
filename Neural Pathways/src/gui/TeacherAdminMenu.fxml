@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TeacherAdminMenuController">
+   <children>
+      <Pane fx:id="teacherAdminPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ListView fx:id="studentList" layoutX="50.0" layoutY="85.0" prefHeight="100.0" prefWidth="400.0" />
+            <Label fx:id="studentListLabel" layoutX="50.0" layoutY="62.0" text="Students" />
+            <Button fx:id="addStudentButton" layoutX="466.0" layoutY="85.0" mnemonicParsing="false" onMouseClicked="#addStudent" text="Add Student" />
+            <Button fx:id="viewStudentButton" layoutX="466.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#viewStudent" text="View Student" />
+            <ListView fx:id="quizList" layoutX="50.0" layoutY="225.0" prefHeight="100.0" prefWidth="400.0" />
+            <Label fx:id="quizListLabel" layoutX="50.0" layoutY="203.0" text="Quizzes" />
+            <Button fx:id="viewQuizButton" layoutX="466.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#viewQuiz" text="View Quiz" />
+            <Label layoutX="50.0" layoutY="14.0" text="Welcome Teacher!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="523.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
