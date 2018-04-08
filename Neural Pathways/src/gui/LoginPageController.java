@@ -29,12 +29,17 @@ public class LoginPageController {
 	
 	@FXML
 	public void login(ActionEvent event) {
-		System.out.print("Login clicked");
-		
+		System.out.print("Login clicked"); 
+		main.showTrivia();
+
 		if(username.getText().equals("teacher")) {
 			System.out.println("I'm a teacher");
 			main.showTeacherAdminPage();
+		} else if (username.getText().equals("student")) {
+			System.out.println("I'm a student");
+			main.showTrivia();
 		}
+		
 	}
 
 }

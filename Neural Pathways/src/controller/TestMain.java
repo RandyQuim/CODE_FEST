@@ -73,6 +73,21 @@ public class TestMain extends Application {
             e.printStackTrace();
         }
     }    
+    public void showTrivia() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(TestMain.class.getResource("../gui/TriviaPage.fxml"));
+            AnchorPane triviaPage = (AnchorPane) loader.load();
+            rootLayout.setCenter(triviaPage);
+            TriviaPageController  controller = loader.getController();
+            System.out.println("FKU");
+            controller.setMainApp(this);            
+        } catch (IOException e) {
+        	
+            e.printStackTrace();
+        }
+    }
 
     public Stage getPrimaryStage() {
         return primaryStage;
