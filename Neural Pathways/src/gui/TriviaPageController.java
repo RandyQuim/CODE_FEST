@@ -34,7 +34,18 @@ public class TriviaPageController {
 	
 	public void setMainApp(TestMain main) {
 		this.main=main;
-		
+	}
+	
+	public void submit() {
+		System.out.println("Submitting");
 	}
 
+	public void next() {
+		System.out.println("Next Question");
+	}
+	@FXML
+    private void initialize() {
+	//next.disableProperty().set(false);
+	}
+	
 }

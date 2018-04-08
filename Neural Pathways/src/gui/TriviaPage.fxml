@@ -20,8 +20,8 @@
             <RadioButton fx:id="a2" layoutX="52.0" layoutY="131.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
             <RadioButton fx:id="a3" layoutX="52.0" layoutY="183.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
             <RadioButton fx:id="a4" layoutX="52.0" layoutY="231.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
-            <Button fx:id="submit" layoutX="417.0" layoutY="286.0" mnemonicParsing="false" text="Submit" />
-            <Button fx:id="next" disable="true" layoutX="497.0" layoutY="286.0" mnemonicParsing="false" text="Next" />
+            <Button fx:id="submit" layoutX="417.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#submit" text="Submit" />
+            <Button fx:id="next" disable="true" layoutX="497.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#next" text="Next" />
          </children>
       </Pane>
    </children>
