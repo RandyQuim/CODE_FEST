@@ -42,17 +42,22 @@ public class TriviaPageController {
 	}
 	
 	public void submit() {
-		if(!a1.isSelected() && Integer.parseInt(lines[5])==1) {
-			System.out.println("WRONG");}
-		if(!a2.isSelected() && Integer.parseInt(lines[5])==2) {
-			System.out.println("Wrong");
+	
+		if(!a1.isSelected()&&!a2.isSelected()&&!a3.isSelected()&&!a4.isSelected()) {}
+		else {	
+			if(!a1.isSelected() && Integer.parseInt(lines[5])==1) {
+				System.out.println("WRONG");}
+			if(!a2.isSelected() && Integer.parseInt(lines[5])==2) {
+				System.out.println("Wrong");
+			}
+			if(!a3.isSelected() && Integer.parseInt(lines[5])==3) {
+				System.out.println("WRONG");}
+			if(!a4.isSelected() && Integer.parseInt(lines[5])==4) {
+				System.out.println("Wrong");
+			}			
+			next.setDisable(false);
+			submit.setDisable(true);
 		}
-		if(!a3.isSelected() && Integer.parseInt(lines[5])==3) {
-			System.out.println("WRONG");}
-		if(!a4.isSelected() && Integer.parseInt(lines[5])==4) {
-			System.out.println("Wrong");
-		}		
-		System.out.println("Submitting");
 	}
 
 	public void next() {
@@ -77,7 +82,7 @@ public class TriviaPageController {
         question.setText(lines[2]);
         
         
-	//next.disableProperty().set(false);
+
 	}
 	
 }
