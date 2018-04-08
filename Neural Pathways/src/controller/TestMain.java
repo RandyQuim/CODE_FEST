@@ -22,7 +22,7 @@ public class TestMain extends Application {
         initRootLayout();
 
         showLoginPage();
-        //showTeacherAdminPage();
+        
 	}
 	
 	
@@ -49,7 +49,7 @@ public class TestMain extends Application {
      */
     public void showLoginPage() {
         try {
-            // Load person overview.
+            // Load login page.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(TestMain.class.getResource("../gui/LoginPage.fxml"));
             AnchorPane loginPage = (AnchorPane) loader.load();
