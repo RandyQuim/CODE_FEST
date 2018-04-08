@@ -5,14 +5,14 @@ public class TriviaManager {
 	private Question question;
 	private Random rand;
 	private String[] split;
-//	private Database database;
+	//private Database database;
 	private int counter;
 	private Student student;
 
 	public TriviaManager() {
 		this.question = new Question();
 		this.rand = new Random();
-//		this.database = new Database();
+		//this.database = new Database();
 		this.counter = 0;
 	}
 

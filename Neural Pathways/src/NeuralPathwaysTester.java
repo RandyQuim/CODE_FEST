@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import database.DatabaseOperations;
+import database.QuestionTable;
+
 /**
  * @author Timothy McWatters
  * @author Randy Quimby
@@ -24,26 +27,24 @@ public class NeuralPathwaysTester {
 		DatabaseOperations.connectToDB();
 		
    	 	// this is for testing QuestionTable
-   	 	/**
 		ArrayList<String> insertQuestionTableValues = new ArrayList<String>();
-   	 	insertQuestionTableValues.add("TestElement1");
-   	 	insertQuestionTableValues.add("TestElement2");
-   	 	insertQuestionTableValues.add("TestElement3");
-   	 	insertQuestionTableValues.add("TestElement4");
-   	 	insertQuestionTableValues.add("TestElement5");
-   	 	insertQuestionTableValues.add("TestElement6");
-   	 	insertQuestionTableValues.add("TestElement7");
-   	 	insertQuestionTableValues.add("TestElement8");
-   	 	insertQuestionTableValues.add("TestElement9");
-   	 	insertQuestionTableValues.add("TestElement10");
-   	 	insertQuestionTableValues.add("TestElement11");
-   	 	insertQuestionTableValues.add("TestElement12");
+   	 	insertQuestionTableValues.add("Q1"); 				// Identifier
+   	 	insertQuestionTableValues.add("Find the X value in the following equation? 5x - 11 = 42"); //Question
+   	 	insertQuestionTableValues.add("whydoyoudodis.jpg"); // Irrelevant
+   	 	insertQuestionTableValues.add("Add 11 to both sides~Subtract 11 to both sides~Multiply 5x by 2~Add 5 to both");		//Step1
+   	 	insertQuestionTableValues.add("1");		//Step1Ans [Position 1 starting from 1]
+   	 	insertQuestionTableValues.add("wrong~5x-11+11=42+11~wrong~wrong");		//Step2
+   	 	insertQuestionTableValues.add("2");		//Step2Ans [pos 2]
+   	 	insertQuestionTableValues.add("Divide both sides by 5~Multiply both sides by 5~add 5 to both sides~subtract 11 from both sides");		//Step3
+   	 	insertQuestionTableValues.add("1");      //Step3Ans   
+   	 	insertQuestionTableValues.add("wrong~wrong~wrong~(5x)/5 = 53/5");     //Step4
+   	 	insertQuestionTableValues.add("4");     //Step4Ans   
+   	 	insertQuestionTableValues.add("x = 53/5");     //Result
    	 			
    	 	QuestionTable QT = new QuestionTable();
 		//QT.insertRowIntoTable(QT.getTableName(), insertQuestionTableValues);
 		System.out.println("The number of rows in this table are: " + QT.retrieveNumberOfRowsInTable());
 		System.out.println(QT.retrieveTableRow(QT.getTableName(), 1));
-		*/
 		
 		// this is for testing StudentTable
 		/**
@@ -61,10 +62,10 @@ public class NeuralPathwaysTester {
 		*/
 		
 		StudentTable ST = new StudentTable();
-		System.out.println("The number of rows in this table are: " + ST.retrieveNumberOfRowsInTable());
+		System.out.println("The number of rows in student table are: " + ST.retrieveNumberOfRowsInTable());
 		
-		QuestionTable QT = new QuestionTable();
-		System.out.println("The number of rows in this table are: " + QT.retrieveNumberOfRowsInTable());
+		//QuestionTable QT = new QuestionTable();
+		System.out.println("The number of rows in question table are: " + QT.retrieveNumberOfRowsInTable());
 		
 	}
 }

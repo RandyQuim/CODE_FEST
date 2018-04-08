@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import database.DatabaseOperations;
+
 /**
  * @author Timothy McWatters
  * @author Randy Quimby
