@@ -1,3 +1,4 @@
+package controller;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -51,7 +52,7 @@ public class TriviaManager {
 		if (question.getAnswers().get(counter).getAnswer().equals(answer)) {
 			return true;
 		} else {
-			student.addIncorrectStep(question.getSteps().get(counter));
+			student.addIncorrectStep(question.getSteps().get(counter).getStep());
 			return false;
 		}
 	}

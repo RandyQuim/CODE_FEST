@@ -1,6 +1,9 @@
-/QuestionTable.class
-/StudentTable.class
-/TestMain.class
+/Answer.class
+/NeuralPathwaysTester.class
+/Question.class
+/Step.class
+/Student.class
+/TeacherAdministration.class
 /controller/
 /database/
 /gui/

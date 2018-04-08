@@ -8,51 +8,47 @@ public class TeacherAdministration {
 	private ArrayList<Student> students;
 	private ArrayList<Trivia> quizzes;
 	StudentTable studentTable;
-	
+
 	public TeacherAdministration() {
 		this.students = new ArrayList<Student>();
 		this.quizzes = new ArrayList<Trivia>();
 		studentTable = new StudentTable();
 		pullFromDatabase();
-		
+
 	}
-	
+
 	public void pullFromDatabase() {
 		String row[];
 		String listofmistakes[];
 		ArrayList<String> mistakes = new ArrayList<String>();
-		int count = 0;
-		new DatabaseOperations();
-		DatabaseOperations.connectToDB();
+	
 		for(int i = 1; i <= 5; i++) {
 			row = studentTable.retrieveTableRow("StudentTable", i).split("\\r?\\n");
-			for (String line : row) {
-	            System.out.println("line " + count++ + " : " + line);
-	        }
+			
 			if(row[3].equals("")) {
 				//mistakes will be empty
 			} else {
 				listofmistakes = row[3].split("~");
 				for(String a : listofmistakes) {
-					mistakes.add(a);
+	       			mistakes.add(a);
 				}
 			}
 			addStudent(row[1],mistakes,Integer.parseInt(row[4]));
 			mistakes.clear();
 		}
 	}
-	
+
 	public Student getStudent(int index){
 		return students.get(index);
 	}
-	
+
 	public ArrayList<String> getStudentsNames(){
 		ArrayList<String> temp = new ArrayList<String>();
     	for (Student s : students) {
     		temp.add(s.getName());
     	}
 		return temp;
-	}	
+	}
 	public ArrayList<Trivia> getQuizzes(){
 		return quizzes;
 	}
@@ -62,12 +58,12 @@ public class TeacherAdministration {
     		temp.add(i);
     	}
 		return temp;
-	}	
-	
+	}
+
 	public ArrayList<String> getMistakes(int student) {
 		return students.get(student).getIncorrectSteps();
 	}
-	
+
 	public void addStudent(String name, ArrayList<String> mistakes, int score) {
 		Student newStudent = new Student(name);
 		for(String a : mistakes) {
@@ -76,8 +72,8 @@ public class TeacherAdministration {
 		newStudent.setScore(score);
 		students.add(newStudent);
 	}
-	
+
 	public void calculateStudentScore(int student) {
-		
+
 	}
 }

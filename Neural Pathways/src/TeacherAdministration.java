@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import controller.TriviaManager;
+
 
 public class TeacherAdministration {
 

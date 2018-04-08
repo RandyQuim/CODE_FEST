@@ -106,9 +106,6 @@ public class TriviaPageController {
         a4.setText(answers[3]);
         step.setText(answers[4]);
         question.setText(lines[2]);
-        
-        
-
 	}
 	
 }
