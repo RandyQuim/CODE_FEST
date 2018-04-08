@@ -10,29 +10,25 @@ import java.util.ArrayList;
  * 
  * UWF CodeFest 2018 Project
  * Neural Pathways
- * File Name: QuestionTable.java
+ * File Name: StudentTable.java
  * 
  * This Program: will help with determining the amount of learning 
  * occuring during a course.
  */
 
-public class QuestionTable {
+public class StudentTable {
 	//number of columns in the table
-	private final int numberOfColumns = 12;
+	private final int numberOfColumns = 4;
     //name of this specific DataBase Table
-    private final String tableName = "QuestionTable";
+    private final String tableName = "StudentTable";
     //String used to create this specific Table
-    private final String tableCreationString = "(questionID varchar(4000) not null PRIMARY KEY, question varchar(4000) not null, "
-    		+ "questionDescription varchar(4000) not null, "
-    		+ "step1 varchar(4000) not null, step1Answer varchar(4000) not null, "
-    		+ "step2 varchar(4000) not null, step2Answer varchar(4000) not null, "
-    		+ "step3 varchar(4000) not null, step3Answer varchar(4000) not null, "
-    		+ "step4 varchar(4000) not null, step4Answer varchar(4000) not null, finalResult varchar(4000) not null);";
+    private final String tableCreationString = "(studentName varchar(4000) not null PRIMARY KEY, password varchar(4000) not null, "
+    		+ "mistakes varchar(4000) not null, score varchar(4000) not null);";
     
     /**
      * Default Constructor for the QuestionTable class
      */
-    public QuestionTable() {
+    public StudentTable() {
 
     }
 
@@ -66,22 +62,13 @@ public class QuestionTable {
      */
     public void insertRowIntoTable(String tableName, ArrayList<String> insertValues) {
 
-        String questionID = insertValues.get(0);
-        String question = insertValues.get(1);
-        String questionDescription = insertValues.get(2);
-        String step1 = insertValues.get(3);
-        String step1Answer = insertValues.get(4);
-        String step2 = insertValues.get(5);
-        String step2Answer = insertValues.get(6);
-        String step3 = insertValues.get(7);
-        String step3Answer = insertValues.get(8);
-        String step4 = insertValues.get(9);
-        String step4Answer = insertValues.get(10);
-        String finalResult = insertValues.get(11);
+        String studentName = insertValues.get(0);
+        String password = insertValues.get(1);
+        String mistakes = insertValues.get(2);
+        String score = insertValues.get(3);
 
-        String insertString = "INSERT INTO " + tableName + "(questionID, question, questionDescription, step1, step1Answer, step2, step2Answer, step3, step3Answer, step4, step4Answer ,finalResult) VALUES ('" 
-        + questionID + "', '" + question + "', '" + questionDescription + "', '" + step1 + "', '" + step1Answer + "', '" + step2 + "', '" + step2Answer + "', '" + step3 + "', '" + step3Answer + "', '" + step4 
-        + "', '" + step4Answer + "', '" + finalResult + "');";
+        String insertString = "INSERT INTO " + tableName + "(studentName, password, mistakes, score) VALUES ('" 
+        + studentName + "', '" + password + "', '" + mistakes + "', '" + score + "');";
         DatabaseOperations.insertIntoTable(insertString);
     }
 
@@ -104,7 +91,7 @@ public class QuestionTable {
             "SELECT * FROM" +
            "(" +
             "Select " +
-            "Row_Number() Over (Order By question) As RowNum" +
+            "Row_Number() Over (Order By studentName) As RowNum" +
             ", * " +
            "From " + tableName + 
            ") t2 " +
@@ -117,8 +104,8 @@ public class QuestionTable {
      * Deletes a row from the Table
      * @param questionID = the questionID of the row to delete
      */
-    public void DeleteRowFromTable(String questionID) {
-        String rowToDelete = ("DELETE FROM " + tableName + " WHERE questionID='" + questionID + "';");
+    public void DeleteRowFromTable(String studentName) {
+        String rowToDelete = ("DELETE FROM " + tableName + " WHERE studentName='" + studentName + "';");
         DatabaseOperations.deleteRowFromTable(rowToDelete);
     }
 }

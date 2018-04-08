@@ -20,35 +20,51 @@ public class NeuralPathwaysTester {
 
 	public static void main(String[] args) {
 		
-		String tableName = "TestTable";
-		String tableCreationString = "(column1 varchar(4000) not null PRIMARY KEY, column2 varchar(4000) not null, column3 varchar(4000) not null);";
-		String insertionString = "";
-		String column = "column1";
-   	 	String rowToDelete = ("DELETE FROM " + tableName + " WHERE column1='" + column + "';");
-   	 	ArrayList<String> insertValues = new ArrayList<String>();
-   	 	
-   	 	insertValues.add("TestElement1");
-   	 	insertValues.add("TestElement2");
-   	 	insertValues.add("TestElement3");
-   	 	insertValues.add("TestElement4");
-   	 	insertValues.add("TestElement5");
-   	 	insertValues.add("TestElement6");
-   	 	insertValues.add("TestElement7");
-   	 	insertValues.add("TestElement8");
-   	 	insertValues.add("TestElement9");
-   	 	insertValues.add("TestElement10");
-   	 	insertValues.add("TestElement11");
-   	 	insertValues.add("TestElement12");
-		
 		new DatabaseOperations();
 		DatabaseOperations.connectToDB();
-		QuestionTable QT = new QuestionTable();
-		//QT.insertRowIntoTable(QT.getTableName(), insertValues);
+		
+   	 	// this is for testing QuestionTable
+   	 	/**
+		ArrayList<String> insertQuestionTableValues = new ArrayList<String>();
+   	 	insertQuestionTableValues.add("TestElement1");
+   	 	insertQuestionTableValues.add("TestElement2");
+   	 	insertQuestionTableValues.add("TestElement3");
+   	 	insertQuestionTableValues.add("TestElement4");
+   	 	insertQuestionTableValues.add("TestElement5");
+   	 	insertQuestionTableValues.add("TestElement6");
+   	 	insertQuestionTableValues.add("TestElement7");
+   	 	insertQuestionTableValues.add("TestElement8");
+   	 	insertQuestionTableValues.add("TestElement9");
+   	 	insertQuestionTableValues.add("TestElement10");
+   	 	insertQuestionTableValues.add("TestElement11");
+   	 	insertQuestionTableValues.add("TestElement12");
+   	 			
+   	 	QuestionTable QT = new QuestionTable();
+		//QT.insertRowIntoTable(QT.getTableName(), insertQuestionTableValues);
 		System.out.println("The number of rows in this table are: " + QT.retrieveNumberOfRowsInTable());
 		System.out.println(QT.retrieveTableRow(QT.getTableName(), 1));
+		*/
 		
-		//DatabaseOperations.DeleteRowFromTable(tableName, rowToDelete);
-		//DatabaseOperations.InsertIntoTable(tableName, insertionString);
-		//DatabaseOperations.retrieveNumberOfRowsInTable(tableName);
+		// this is for testing StudentTable
+		/**
+		ArrayList<String> insertStudentTableValues = new ArrayList<String>();
+   	 	insertStudentTableValues.add("StudentTableTestElement1");
+   	 	insertStudentTableValues.add("StudentTableTestElement2");
+   	 	insertStudentTableValues.add("StudentTableTestElement3");
+   	    insertStudentTableValues.add("StudentTableTestElement4");
+   	 	
+   	 	StudentTable ST = new StudentTable();
+   	 	//ST.createTable(ST.getTableName(), ST.getTableCreationString());
+		//ST.insertRowIntoTable(ST.getTableName(), insertStudentTableValues);
+		System.out.println("The number of rows in this table are: " + ST.retrieveNumberOfRowsInTable());
+		System.out.println(ST.retrieveTableRow(ST.getTableName(), 1));
+		*/
+		
+		StudentTable ST = new StudentTable();
+		System.out.println("The number of rows in this table are: " + ST.retrieveNumberOfRowsInTable());
+		
+		QuestionTable QT = new QuestionTable();
+		System.out.println("The number of rows in this table are: " + QT.retrieveNumberOfRowsInTable());
+		
 	}
 }

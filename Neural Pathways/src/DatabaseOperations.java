@@ -120,8 +120,7 @@ public class DatabaseOperations {
       * @param rowToRetrieve = The SQL string to retrive a row from the database
       * @return a string value of the row values separated by the "\n" character
       */
-     public static String retrieveRowFromTable(String rowToRetrieve) {
-    	 int numberOfRows = 12;
+     public static String retrieveRowFromTable(String rowToRetrieve, int numberOfRows) {
          String retrievedRow = "";
          String TSQLSourceCode = rowToRetrieve;
 
