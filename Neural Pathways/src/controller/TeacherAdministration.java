@@ -1,24 +1,41 @@
 package controller;
 import java.util.ArrayList;
-
+import database.DatabaseOperations;
+import database.StudentTable;
 
 public class TeacherAdministration {
 
 	private ArrayList<Student> students;
 	private ArrayList<Trivia> quizzes;
+	StudentTable studentTable;
 	
 	public TeacherAdministration() {
 		this.students = new ArrayList<Student>();
 		this.quizzes = new ArrayList<Trivia>();
-		addStudent("Louis");
-		students.get(0).addIncorrectStep("Question 1 Step 2");
-		addStudent("Chris");
-		students.get(1).addIncorrectStep("Question 1 Step 4");
-		addStudent("Tim");
-		students.get(2).addIncorrectStep("Question 2 Step 1");
-		addStudent("Daniel");
-		students.get(3).addIncorrectStep("Question 2 Step 3");
-		addStudent("Randy");
+		studentTable = new StudentTable();
+		pullFromDatabase();
+		
+	}
+	
+	public void pullFromDatabase() {
+		String row[];
+		String listofmistakes[];
+		ArrayList<String> mistakes = new ArrayList<String>();
+		int count = 0;
+		new DatabaseOperations();
+		DatabaseOperations.connectToDB();
+		for(int i = 1; i <= 5; i++) {
+			row = studentTable.retrieveTableRow("StudentTable", i).split("\\r?\\n");
+			for (String line : row) {
+	            System.out.println("line " + count++ + " : " + line);
+	        }
+			listofmistakes = row[3].split("~");
+			for(String a : listofmistakes) {
+				mistakes.add(a);
+			}
+			addStudent(row[0],mistakes,Integer.parseInt(row[3]));
+			mistakes.clear();
+		}
 	}
 	
 	public Student getStudent(int index){
@@ -47,8 +64,12 @@ public class TeacherAdministration {
 		return students.get(student).getIncorrectSteps();
 	}
 	
-	public void addStudent(String name) {
+	public void addStudent(String name, ArrayList<String> mistakes, int score) {
 		Student newStudent = new Student(name);
+		for(String a : mistakes) {
+			newStudent.addIncorrectStep(a);
+		}
+		newStudent.setScore(score);
 		students.add(newStudent);
 	}
 	
