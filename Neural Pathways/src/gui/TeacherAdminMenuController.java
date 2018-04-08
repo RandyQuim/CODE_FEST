@@ -23,7 +23,6 @@ public class TeacherAdminMenuController {
 	
 	public void setMainApp(TestMain main) {
         this.main = main;
-        //patientTable.setItems(main.getPatientData());
         } 
 	
 	
@@ -45,7 +44,6 @@ public class TeacherAdminMenuController {
 	private Button viewQuizButton;
 	@FXML
     private void initialize() {
-    	//drugColumn.setCellValueFactory(cellData -> cellData.getValue().getName());  //MedicationList.medications[0].getName()
     	 teacher = new TeacherAdministration();
 		ArrayList<String> list = new ArrayList<String>();
 		list = teacher.getStudentsNames();
@@ -70,6 +68,7 @@ public class TeacherAdminMenuController {
     @FXML
     private void logout() {
     	System.out.println("Logout");
+    	main.showLoginPage();
     }
     
     @FXML
