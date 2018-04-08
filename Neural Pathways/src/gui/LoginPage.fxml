@@ -16,7 +16,7 @@
       <DialogPane prefHeight="400.0" prefWidth="600.0" AnchorPane.topAnchor="0.0" />
       <ImageView fitHeight="386.0" fitWidth="589.0" layoutX="4.0" layoutY="8.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../Blue-curved-banner-template.jpg" />
+            <Image url="@../../rsc/Blue-curved-banner-template.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="username" layoutX="417.0" layoutY="172.0" promptText="Name" />
