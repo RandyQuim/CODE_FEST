@@ -4,32 +4,37 @@ import java.util.ArrayList;
 public class TeacherAdministration {
 
 	private ArrayList<Student> students;
-	private ArrayList<Trivia> quizzes;
-	
+	private ArrayList<TriviaManager> quizzes;
+	//private Database database;
+
 	public TeacherAdministration() {
 		this.students = new ArrayList<Student>();
-		this.quizzes = new ArrayList<Trivia>();
+		this.quizzes = new ArrayList<TriviaManager>();
 	}
-	
+
 	public ArrayList<Student> getStudents(){
 		return students;
 	}
-	
-	public ArrayList<Trivia> getQuizzes(){
+
+	public ArrayList<TriviaManager> getQuizzes(){
 		return quizzes;
 	}
-	
-	
+
 	public ArrayList<Step> getMistakes(int student) {
-		return students.get(student).getIncorrectSteps();
+		return storeMistakes(students.get(student).getIncorrectSteps()); // how connect students to mistakes and what is this doing?
 	}
-	
-	public void addStudent(String name) {
-		//Student newStudent = new Student(name);
-		//students.add(newStudent);
+
+	private ArrayList<Step> storeMistakes(ArrayList<Step> mistakes) {
+	// database.insertRowIntoTable(mistakes);
+		return mistakes;
 	}
-	
+
+	public void addStudent(Student student) {
+		/////////////  DEFINATELY NEED student here from previous!!!
+		students.add(student);
+	}
+
 	public void calculateStudentScore(int student) {
-		
+
 	}
 }

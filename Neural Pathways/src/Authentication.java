@@ -8,9 +8,11 @@ public class Authentication {
 			userData = "Mikey\npassword\n50"; // database.retrieveTableRow(database.TableName,
 												// i);
 			splitRow = userData.split("\n");
-			if (splitRow[1].equals(userName) && splitRow[2].equals(password)) {
+			if (splitRow[0].equals(userName) && splitRow[1].equals(password)) {
 				Student student = new Student(userName, password);
-				student.setScore(Integer.parseInt(splitRow[3]));
+				TriviaManager tM =  new TriviaManager();
+				tM.setStudent(student);
+				student.setScore(Integer.parseInt(splitRow[2]));
 				return true;
 			}
 		}
