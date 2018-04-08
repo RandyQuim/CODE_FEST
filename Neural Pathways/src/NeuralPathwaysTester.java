@@ -50,15 +50,15 @@ public class NeuralPathwaysTester {
 		
 		// this is for testing StudentTable
 		
-		ArrayList<String> insertStudentTableValues = new ArrayList<String>();
+		/*ArrayList<String> insertStudentTableValues = new ArrayList<String>();
    	 	insertStudentTableValues.add("Chris");
    	 	insertStudentTableValues.add("sirhc");
    	 	insertStudentTableValues.add("");
    	    insertStudentTableValues.add("100");
-   	 	
+   	 	*/
    	 	StudentTable ST = new StudentTable();
    	 	//ST.createTable(ST.getTableName(), ST.getTableCreationString());
-		ST.insertRowIntoTable(ST.getTableName(), insertStudentTableValues);
+		//ST.insertRowIntoTable(ST.getTableName(), insertStudentTableValues);
 		System.out.println("The number of rows in this table are: " + ST.retrieveNumberOfRowsInTable());
 		System.out.println(ST.retrieveTableRow(ST.getTableName(), 1));
 		

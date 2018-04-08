@@ -17,6 +17,7 @@
             <Label fx:id="scoreLabel" layoutX="60.0" layoutY="53.0" text="Label" />
             <ListView fx:id="mistakes" layoutX="35.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
             <Label layoutX="77.0" layoutY="83.0" text="Most Recent Mistakes" />
+            <Button fx:id="tocsv" layoutX="51.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#exportCSV" text="Export CSV" />
          </children>
       </Pane>
    </children>

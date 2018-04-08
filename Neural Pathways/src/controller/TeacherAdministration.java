@@ -37,7 +37,7 @@ public class TeacherAdministration {
 					mistakes.add(a);
 				}
 			}
-			addStudent(row[0],mistakes,Integer.parseInt(row[4]));
+			addStudent(row[1],mistakes,Integer.parseInt(row[4]));
 			mistakes.clear();
 		}
 	}
