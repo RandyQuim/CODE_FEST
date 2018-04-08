@@ -1,6 +1,5 @@
+package database;
 import java.util.ArrayList;
-
-import database.DatabaseOperations;
 
 /**
  * @author Timothy McWatters

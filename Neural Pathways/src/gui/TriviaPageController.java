@@ -39,7 +39,7 @@ public class TriviaPageController {
 	QuestionTable questionTable = new QuestionTable();
 	String[] lines;
 	String[] answers;
-	int questionLine = 4;
+	int questionStep = 4;
 	int answerLine = 5;
 	public void setMainApp(TestMain main) {
 		this.main=main;
@@ -66,15 +66,21 @@ public class TriviaPageController {
 
 	public void next() {
 		System.out.println("Next Question");
-		nextStep();
+		if(questionStep!=10) {
+			nextStep();
+		} else {
+			// Quiz Complete
+			submit.setDisable(true);
+			// Save mistakes
+		}
 		next.setDisable(true);
 		submit.setDisable(false);
 	}
 	
 	public void nextStep() {
-		questionLine += 2;
+		questionStep += 2;
 		answerLine += 2;
-		answers = lines[questionLine].split("~");
+		answers = lines[questionStep].split("~");
 	    a1.setText(answers[0]);
 	    a2.setText(answers[1]);
 	    a3.setText(answers[2]);
