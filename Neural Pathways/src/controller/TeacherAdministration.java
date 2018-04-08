@@ -10,15 +10,25 @@ public class TeacherAdministration {
 	public TeacherAdministration() {
 		this.students = new ArrayList<Student>();
 		this.quizzes = new ArrayList<Trivia>();
+		addStudent("Louis");
+		students.get(0).addIncorrectStep("Question 1 Step 2");
+		addStudent("Chris");
+		students.get(1).addIncorrectStep("Question 1 Step 4");
+		addStudent("Tim");
+		students.get(2).addIncorrectStep("Question 2 Step 1");
+		addStudent("Daniel");
+		students.get(3).addIncorrectStep("Question 2 Step 3");
+		addStudent("Randy");
 	}
 	
-	public ArrayList<Student> getStudents(){
-		return students;
+	public Student getStudent(int index){
+		return students.get(index);
 	}
+	
 	public ArrayList<String> getStudentsNames(){
 		ArrayList<String> temp = new ArrayList<String>();
-    	for (int i = 0; i < 3; i++) {
-    		temp.add("Johnney");
+    	for (Student s : students) {
+    		temp.add(s.getName());
     	}
 		return temp;
 	}	
@@ -33,7 +43,7 @@ public class TeacherAdministration {
 		return temp;
 	}	
 	
-	public ArrayList<Step> getMistakes(int student) {
+	public ArrayList<String> getMistakes(int student) {
 		return students.get(student).getIncorrectSteps();
 	}
 	

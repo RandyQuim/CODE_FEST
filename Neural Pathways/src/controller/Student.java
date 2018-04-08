@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Student {
 
 	private int score;
-	private ArrayList<Step> incorrectSteps;
+	private ArrayList<String> incorrectSteps;
 	private String name;
 	//private String pass;
 	
@@ -12,7 +12,8 @@ public class Student {
 		
 		this.name = aName;
 		//this.pass = aPass;
-		this.incorrectSteps = new ArrayList<Step>();
+		this.incorrectSteps = new ArrayList<String>();
+		this.score = 0;
 		
 	}
 	
@@ -32,11 +33,11 @@ public class Student {
 		return pass;
 	}*/
 	
-	public void addIncorrectStep(Step step) {
+	public void addIncorrectStep(String step) {
 		incorrectSteps.add(step);
 	}
 	
-	public ArrayList<Step> getIncorrectSteps(){
+	public ArrayList<String> getIncorrectSteps(){
 		return incorrectSteps;
 	}
 	

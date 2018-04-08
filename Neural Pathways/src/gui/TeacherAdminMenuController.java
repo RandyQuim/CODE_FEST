@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import controller.TeacherAdministration;
 import controller.TestMain;
+import controller.Student;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
@@ -57,6 +58,10 @@ public class TeacherAdminMenuController {
 	private void viewStudent() {
 		ObservableList<Integer> selectedIndices =
     		    studentList.getSelectionModel().getSelectedIndices();
+		if(selectedIndices != null) {
+			Student student = teacher.getStudent(selectedIndices.get(0));
+			main.showViewStudentDialog(student);
+		}
 		System.out.println(selectedIndices);
 	}
     @FXML

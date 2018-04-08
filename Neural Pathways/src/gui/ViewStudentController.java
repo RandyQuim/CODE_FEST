@@ -1,7 +1,8 @@
 package gui;
 
 import controller.TeacherAdministration;
-import controller.TestMain;
+import java.util.ArrayList;
+import controller.Student;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -9,13 +10,13 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.Label;
 
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.ListView;
 
 public class ViewStudentController {
 	@FXML
 	private Button okButton;
 	@FXML
-	private TableColumn mistakes;
+	private ListView<String> mistakes;
 	@FXML
 	private Label nameLabel;
 	@FXML
@@ -23,20 +24,21 @@ public class ViewStudentController {
 	
 	TeacherAdministration teacher;
 	private Stage dialogStage;
-	private boolean okClicked = false;
 	
-	private void initialize() {
+	public void setStudent(Student student) {
+		nameLabel.setText(student.getName());
+		scoreLabel.setText(Integer.toString(student.getScore()));
 		
-	}
-	
-	private void setStudent() {
-		
+		ArrayList<String> list = new ArrayList<String>();
+		list = student.getIncorrectSteps();
+		mistakes.getItems().addAll(list);
 	}
 	
 	public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;
 	}
 	
+	@FXML
 	public void closeWindow() {
 		dialogStage.close();
 	}
