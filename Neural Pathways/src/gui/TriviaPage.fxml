@@ -11,17 +11,18 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Label fx:id="question" layoutX="111.0" layoutY="28.0" text="Label" />
-            <RadioButton fx:id="a1" layoutX="52.0" layoutY="83.0" mnemonicParsing="false" text="RadioButton">
+            <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="12.0" layoutY="9.0" prefHeight="53.0" prefWidth="583.0" text="Label" />
+            <RadioButton fx:id="a1" layoutX="52.0" layoutY="121.0" mnemonicParsing="false" text="RadioButton">
                <toggleGroup>
                   <ToggleGroup fx:id="group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="a2" layoutX="52.0" layoutY="131.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
-            <RadioButton fx:id="a3" layoutX="52.0" layoutY="183.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
-            <RadioButton fx:id="a4" layoutX="52.0" layoutY="231.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
+            <RadioButton fx:id="a2" layoutX="52.0" layoutY="169.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
+            <RadioButton fx:id="a3" layoutX="52.0" layoutY="221.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
+            <RadioButton fx:id="a4" layoutX="52.0" layoutY="269.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$group" />
             <Button fx:id="submit" layoutX="417.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#submit" text="Submit" />
             <Button fx:id="next" disable="true" layoutX="497.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#next" text="Next" />
+            <Label fx:id="step" layoutX="81.0" layoutY="69.0" text="Label" />
          </children>
       </Pane>
    </children>

@@ -19,6 +19,8 @@ public class TriviaPageController {
 	@FXML
 	private Label question;
 	@FXML
+	private Label step;
+	@FXML
 	private RadioButton a1;
 	@FXML
 	private ToggleGroup group;
@@ -79,6 +81,7 @@ public class TriviaPageController {
         a2.setText(answers[1]);
         a3.setText(answers[2]);
         a4.setText(answers[3]);
+        step.setText(answers[4]);
         question.setText(lines[2]);
         
         
