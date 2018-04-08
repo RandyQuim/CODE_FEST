@@ -13,11 +13,14 @@ import javafx.scene.control.RadioButton;
 import controller.TestMain;
 import database.DatabaseOperations;
 import database.QuestionTable;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class TriviaPageController {
 	@FXML
 	private Label question;
+	Alert alert = new Alert(AlertType.WARNING);
+	
 	@FXML
 	private Label step;
 	@FXML
@@ -34,7 +37,7 @@ public class TriviaPageController {
 	private Button submit;
 	@FXML
 	private Button next;
-	
+	Boolean second = false;
 	TestMain main;
 	QuestionTable questionTable = new QuestionTable();
 	String[] lines;
@@ -69,10 +72,27 @@ public class TriviaPageController {
 		if(questionStep!=10) {
 			nextStep();
 		} else {
+			
+			question.setText("The final Answer is "+ lines[12]);
+			
+			alert.setContentText("The final Answer is "+lines[12]);
+			alert.showAndWait();
+
+			if(second==true) {
+				alert.setContentText("Quiz Complete, You are being logged out");
+				alert.showAndWait();				
+			main.showLoginPage();
+			}
 			// Quiz Complete
-			submit.setDisable(true);
+			second = true;
+			lines = questionTable.retrieveTableRow("QuestionTable", 2).split("\\r?\\n");
+			questionStep = 4;  
+			answerLine = 5;    
+			question.setText(lines[2]);
+			//submit.setDisable(true);
 			// Save mistakes
 		}
+		System.out.println("I WIN");
 		next.setDisable(true);
 		submit.setDisable(false);
 	}
@@ -80,6 +100,7 @@ public class TriviaPageController {
 	public void nextStep() {
 		questionStep += 2;
 		answerLine += 2;
+		System.out.println(questionStep+" "+answerLine);
 		answers = lines[questionStep].split("~");
 	    a1.setText(answers[0]);
 	    a2.setText(answers[1]);
