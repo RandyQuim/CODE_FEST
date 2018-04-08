@@ -29,11 +29,15 @@ public class TeacherAdministration {
 			for (String line : row) {
 	            System.out.println("line " + count++ + " : " + line);
 	        }
-			listofmistakes = row[3].split("~");
-			for(String a : listofmistakes) {
-				mistakes.add(a);
+			if(row[3].equals("")) {
+				//mistakes will be empty
+			} else {
+				listofmistakes = row[3].split("~");
+				for(String a : listofmistakes) {
+					mistakes.add(a);
+				}
 			}
-			addStudent(row[0],mistakes,Integer.parseInt(row[3]));
+			addStudent(row[0],mistakes,Integer.parseInt(row[4]));
 			mistakes.clear();
 		}
 	}
